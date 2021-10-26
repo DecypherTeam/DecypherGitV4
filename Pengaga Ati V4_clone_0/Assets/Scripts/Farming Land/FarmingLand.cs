@@ -32,7 +32,7 @@ namespace Examples
             {
                 Debug.Log("Chillie");
                 //Destroy(chillieSeedBag);
-                Instantiate(chilliePrefab, transform.position, transform.rotation);
+                
             }
         }
     }
