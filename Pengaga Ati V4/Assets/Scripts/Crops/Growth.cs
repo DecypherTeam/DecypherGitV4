@@ -54,12 +54,20 @@ public class Growth : MonoBehaviour
         isMaxSize = true;
     }
 
-    public void OnTriggerStay(Collider other)
+    /*public void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" && harvestReady == true)
         {
             Debug.Log("Player hit");
             harvestReadyToPick = true;
+        }
+    }*/
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Enemy")
+        {
+            Destroy(crop);
         }
     }
 

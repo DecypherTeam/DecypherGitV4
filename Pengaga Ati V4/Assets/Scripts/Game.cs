@@ -6,23 +6,22 @@ namespace Examples
 {
     public class Game : MonoBehaviour
     {
-        Growth growth;
-        public bool harvestChillie;
+        public GameObject targetPrefab;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            GameObject crop = GameObject.Find("Chillie Crop");
-            growth = crop.GetComponent<Growth>();
-        }
+        public bool targetIsActive;
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (GameObject.Find("Chillie Crop") && growth.harvestReadyToPick == true)
+            targetPrefab = GameObject.Find("Chillie Crop(Clone)");
+
+            if (targetPrefab)
             {
-                harvestChillie = true;
-                Debug.Log("player can pick up crop now");
+                Debug.Log("Target is active");
+                targetIsActive = true;
+            }
+            else
+            {
+                Debug.Log("Target is not active");
             }
         }
     }

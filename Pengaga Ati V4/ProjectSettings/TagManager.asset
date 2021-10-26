@@ -15,6 +15,7 @@ TagManager:
   - Land 5
   - Land 1
   - Chillie SeedBag
+  - Enemy
   layers:
   - Default
   - TransparentFX

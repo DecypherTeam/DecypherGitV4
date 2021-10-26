@@ -1170,7 +1170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5908ff80795988a498fd3c8796d23448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDistance: 4.5
+  mesh: {fileID: 5672807745242056494}
+  ghostMaterial: {fileID: 2100000, guid: 40286eb0c268bc74ea4500942d2bfe8e, type: 2}
 --- !u!1 &6594257590655717858
 GameObject:
   m_ObjectHideFlags: 0
