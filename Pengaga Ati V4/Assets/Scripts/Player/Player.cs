@@ -234,6 +234,8 @@ namespace Examples
             Destroy( primitive, 0.5f );
         }
 
+
+
         // Lists of functions handling all chicken functions
         // Function for chicken number 1 [START]
         private void PickChicUp()

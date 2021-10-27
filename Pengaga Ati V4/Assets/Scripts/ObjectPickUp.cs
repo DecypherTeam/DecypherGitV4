@@ -43,6 +43,7 @@ namespace Examples
                     pickupitem.useGravity = false;
                     pickupitem.transform.parent = pickUpDest.transform;
                     pickupitem.constraints = RigidbodyConstraints.FreezeAll;
+                    isPickUp = false;
                 }
             }
 

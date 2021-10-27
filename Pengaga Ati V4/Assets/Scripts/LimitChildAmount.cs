@@ -8,10 +8,18 @@ public class LimitChildAmount : MonoBehaviour
     
     void Update()
     {
-        maxChildAmount = transform.childCount;
-        if (maxChildAmount > 1)
+        Transform[] children = new Transform[transform.childCount];
+
+        for (int c = 0; c < children.Length; c++)
         {
-            transform.DetachChildren();
+            children[c] = transform.GetChild(c);
+        }
+
+        int iteration = 0;
+        while (transform.childCount > 1)
+        {
+            children[iteration].SetParent(null);
+            iteration++;
         }
     }
 }
