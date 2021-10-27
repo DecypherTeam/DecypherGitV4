@@ -41,8 +41,6 @@ namespace Examples
 
         Animator animator;
 
-        SeedCollider seedCollider;
-
         Growth growth;
 
         ObjectPickUp objectpickup;
@@ -58,9 +56,6 @@ namespace Examples
         void Start()
         {
             animator = GetComponent<Animator>();
-
-            GameObject seedcollider = GameObject.Find("Chillie Collider");
-            seedCollider = seedcollider.GetComponent<SeedCollider>();
 
             //-------------------------------------------------------------- Needs Attention --------------------------------------------------------
             /*GameObject crop = GameObject.Find("Chillie Crop");
