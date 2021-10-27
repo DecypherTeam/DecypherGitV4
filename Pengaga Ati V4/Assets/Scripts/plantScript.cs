@@ -2,32 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class plantScript : MonoBehaviour
+namespace Examples
 {
-    public GameObject chillie;
-    // Start is called before the first frame update
-    void Start()
+    public class plantScript : MonoBehaviour
     {
-        
-    }
+        public GameObject chillie;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        SpawnEnemy spawnEnemy;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Chillie SeedBag")
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(other.gameObject);
-            spawnplant();
+            GameObject spawnenemy = GameObject.Find("SpawnEnemy");
+            spawnEnemy = spawnenemy.GetComponent<SpawnEnemy>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Chillie SeedBag")
+            {
+                Destroy(other.gameObject);
+                spawnplant();
+            }
+        }
+
+        void spawnplant()
+        {
+            Instantiate(chillie, transform.position, transform.rotation);
+            spawnEnemy.enemySpawn = true;
         }
     }
-
-    void spawnplant()
-    {
-        Instantiate(chillie, transform.position, transform.rotation);
-    }
 }
+

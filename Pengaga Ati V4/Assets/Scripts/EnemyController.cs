@@ -18,6 +18,8 @@ namespace Examples
         public GameObject mesh;
         public Material ghostMaterial;
 
+        SpawnEnemy spawnEnemy;
+
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
@@ -25,6 +27,9 @@ namespace Examples
             animator = GetComponent<Animator>();
 
             rb = GetComponent<Rigidbody>();
+
+            /*GameObject spawnenemy = GameObject.Find("SpawnEnemy");
+            spawnEnemy = spawnenemy.GetComponent<SpawnEnemy>();*/
         }
 
         private void Update()
