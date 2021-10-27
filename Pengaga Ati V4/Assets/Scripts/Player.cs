@@ -14,7 +14,6 @@ namespace Examples
 
         public Transform bulletDest;
         public float range;
-        /*public GameObject crosshair;*/
 
         public Camera secondCamera;
 
@@ -39,10 +38,6 @@ namespace Examples
 
         Animator animator;
 
-        Growth growth;
-
-        ObjectPickUp objectpickup;
-
         // Awake
         void Awake()
         {
@@ -54,11 +49,6 @@ namespace Examples
         void Start()
         {
             animator = GetComponent<Animator>();
-
-            //-------------------------------------------------------------- Needs Attention --------------------------------------------------------
-            /*GameObject crop = GameObject.Find("Chillie Crop");
-            growth = crop.GetComponent<Growth>();*/
-            //-----------------------------------------------------------------------------------------------------------------------------------------
         }
 
         // Update
@@ -78,23 +68,6 @@ namespace Examples
             // Assigning the pick up mechanics to the pick up button
             if( TCKInput.GetAction( "pickBtn", EActionEvent.Press))
             {
-                // List of calling pick seed bags functions [START]
-                /* if(seedCollider.playerTouchSeed == true && seedCollider.chillieSeedBag != null)
-                 {
-                     seedCollider.PickUp();
-                     animator.SetBool("isPickup", true);
-                 } */
-
-            
-                // [END]
-
-                //-------------------------------------------------------------- Needs Attention --------------------------------------------------------
-                /*if(growth.harvestReadyToPick == true)
-                {
-                    growth.PlayerPickUp();
-                }*/
-                //-----------------------------------------------------------------------------------------------------------------------------------------
-
                 // List of calling pick chicken up functions [START]
                 if (pickedChic == false && pickChic != null)
                 {
@@ -135,13 +108,6 @@ namespace Examples
             // Assigning the item to drop when the button is not pressed
             if (TCKInput.GetAction("pickBtn", EActionEvent.Up))
             {
-                // List of calling drop seed bags functions [START]
-               /* if (seedCollider.chillieSeedBag != null)
-                {
-                    seedCollider.PickDown();
-                } */
-                // [END]
-
                 // List of calling pick chicken down functions
                 if(pickChic != null)
                 {
@@ -181,12 +147,9 @@ namespace Examples
             pickedChicSec = true;
             pickedChicThird = true;
             pickedChicFourth = true;
-
-            /*float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );*/
-            /*float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );*/
             
             // Assign the movement of the character to a joystick
-            Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
+            Vector2 move = TCKInput.GetAxis( "Joystick" ); 
             PlayerMovement(move.x, move.y);
         }
 
@@ -230,7 +193,6 @@ namespace Examples
             {
                 jump = false;
                 moveDirection.y = 25f;
-                /*isPorjectileCube = !isPorjectileCube;*/
             }
 
             if( grounded )            
@@ -257,13 +219,6 @@ namespace Examples
         // PlayerFiring
         public void PlayerFiring()
         {
-            // Camera zooms in on the screen when player shoots
-            
-
-            // Crosshair enabled when shooting
-            //crosshair.gameObject.SetActive(true);
-
-
             if ( !weapReady )
                 return;
 
@@ -291,15 +246,12 @@ namespace Examples
         }
         private void PickChicDown()
         {
-            /*Debug.Log("Unparent chicken");*/
             if (pickChic != null)
             {
                 pickChic.transform.parent = null;
                 pickChic.useGravity = true;
                 animator.SetBool("isPickup", false);
             }
-            
-            /*pickedChic = true;*/
         }
         // Function for chicken number 1 [END]
         // Function for chicken number 2 [START]
@@ -317,7 +269,6 @@ namespace Examples
                 pickChicSec.useGravity = true;
                 animator.SetBool("isPickup", false);
             }
-            
         }
         // Function for chicken number 2 [END]
         // Function for chicken number 3 [START]
@@ -335,7 +286,6 @@ namespace Examples
                 pickChicThird.useGravity = true;
                 animator.SetBool("isPickup", false);
             }
-            
         }
         // Function for chicken number 3 [END]
         // Function for chicken number 4 [START]
@@ -353,7 +303,6 @@ namespace Examples
                 pickChicFourth.useGravity = true;
                 animator.SetBool("isPickup", false);
             }
-                
         }
         // Function for chicken number 4 [END]
 
