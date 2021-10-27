@@ -26,7 +26,6 @@ namespace Examples
         {
             if (enemySpawn == true)
             {
-                Debug.Log("Spawn enemy");
                 Instantiate(enemy, transform.position, transform.rotation);
                 enemySpawn = false;
             }

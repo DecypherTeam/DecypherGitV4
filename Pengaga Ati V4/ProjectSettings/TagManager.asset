@@ -16,6 +16,7 @@ TagManager:
   - Land 1
   - Chillie SeedBag
   - Enemy
+  - Plant Spawn
   layers:
   - Default
   - TransparentFX

@@ -103,7 +103,7 @@ namespace Examples
                 //-----------------------------------------------------------------------------------------------------------------------------------------
 
                 // List of calling pick chicken up functions [START]
-                if (pickedChic == false)
+                if (pickedChic == false && pickChic != null)
                 {
                     PickChicUp();
                     animator.SetBool("isPickup", true);
@@ -111,7 +111,7 @@ namespace Examples
                     pickedChicThird = true;
                     pickedChicFourth = true;
                 }
-                if (pickedChicSec == false)
+                if (pickedChicSec == false && pickChicSec != null)
                 {
                     PickChicUpSec();
                     animator.SetBool("isPickup", true);
@@ -119,7 +119,7 @@ namespace Examples
                     pickedChicThird = true;
                     pickedChicFourth = true;
                 }
-                if(pickedChicThird == false)
+                if(pickedChicThird == false && pickChicThird != null)
                 {
                     PickChicUpThird();
                     animator.SetBool("isPickup", true);
@@ -128,7 +128,7 @@ namespace Examples
                     pickedChicFourth = true;
 
                 }
-                if(pickedChicFourth == false)
+                if(pickedChicFourth == false && pickChicFourth != null)
                 {
                     PickChicUpFourth();
                     animator.SetBool("isPickup", true);
@@ -150,10 +150,13 @@ namespace Examples
                 // [END]
 
                 // List of calling pick chicken down functions
-                PickChicDown();
-                PickChicDownSec();
-                PickChicDownThird();
-                PickChicDownFourth();
+                if(pickChic != null)
+                {
+                    PickChicDown();
+                    PickChicDownSec();
+                    PickChicDownThird();
+                    PickChicDownFourth();
+                }
             }
 
             // Assigning the shooting mechanics to the shooting button
@@ -296,9 +299,13 @@ namespace Examples
         private void PickChicDown()
         {
             /*Debug.Log("Unparent chicken");*/
-            pickChic.transform.parent = null;
-            pickChic.useGravity = true;
-            animator.SetBool("isPickup", false);
+            if (pickChic != null)
+            {
+                pickChic.transform.parent = null;
+                pickChic.useGravity = true;
+                animator.SetBool("isPickup", false);
+            }
+            
             /*pickedChic = true;*/
         }
         // Function for chicken number 1 [END]
@@ -311,9 +318,13 @@ namespace Examples
         }
         private void PickChicDownSec()
         {
-            pickChicSec.transform.parent = null;
-            pickChicSec.useGravity = true;
-            animator.SetBool("isPickup", false);
+            if (pickChicSec != null)
+            {
+                pickChicSec.transform.parent = null;
+                pickChicSec.useGravity = true;
+                animator.SetBool("isPickup", false);
+            }
+            
         }
         // Function for chicken number 2 [END]
         // Function for chicken number 3 [START]
@@ -325,9 +336,13 @@ namespace Examples
         }
         private void PickChicDownThird()
         {
-            pickChicThird.transform.parent = null;
-            pickChicThird.useGravity = true;
-            animator.SetBool("isPickup", false);
+            if(pickChicThird != null)
+            {
+                pickChicThird.transform.parent = null;
+                pickChicThird.useGravity = true;
+                animator.SetBool("isPickup", false);
+            }
+            
         }
         // Function for chicken number 3 [END]
         // Function for chicken number 4 [START]
@@ -339,9 +354,13 @@ namespace Examples
         }
         private void PickChicDownFourth()
         {
-            pickChicFourth.transform.parent = null;
-            pickChicFourth.useGravity = true;
-            animator.SetBool("isPickup", false);
+            if (pickChicFourth != null)
+            {
+                pickChicFourth.transform.parent = null;
+                pickChicFourth.useGravity = true;
+                animator.SetBool("isPickup", false);
+            }
+                
         }
         // Function for chicken number 4 [END]
 
